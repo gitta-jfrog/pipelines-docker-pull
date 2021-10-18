@@ -1,0 +1,11 @@
+pipelines:
+  - name: docker
+    steps:
+      - name: docker
+        type: Bash
+        configuration:
+          integrations:
+            - name: yardeng_hts1_artifactory
+        execution:
+          onStart:
+            - docker login $int_myArtifactory_url --username $int_myArtifactory_user --password $int_myArtifactory_apikey
