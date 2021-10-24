@@ -12,5 +12,5 @@ pipelines:
             - docker login --username $int_GittaLabs_user --password $int_GittaLabs_apikey $int_GittaLabs_url
             - docker pull gittalabs.jfrog.io/docker/busybox
             - docker images
-            - docker save gittalabs.jfrog.io/docker/busybox .
+            - docker save gittalabs.jfrog.io/docker/busybox -o busybox.tar.gz
             - ls -lah
