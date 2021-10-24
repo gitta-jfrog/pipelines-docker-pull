@@ -5,11 +5,11 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: GittaLabs
+            - name: ArtifactoryIntegration
         execution:
           onStart:
             - docker images
-            - docker login --username $int_GittaLabs_user --password $int_GittaLabs_apikey $int_GittaLabs_url
+            - docker login --username $int_ArtifactoryIntegration_user --password $int_ArtifactoryIntegration_apikey $int_ArtifactoryIntegration_url
             - docker pull gittalabs.jfrog.io/docker/busybox
             - docker images
             - docker save gittalabs.jfrog.io/docker/busybox -o busybox.tar.gz
