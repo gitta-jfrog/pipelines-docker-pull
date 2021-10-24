@@ -5,12 +5,12 @@ pipelines:
         type: Bash
         configuration:
           integrations:
-            - name: yardeng_hts1_artifactory
+            - name: GittaLabs
         execution:
           onStart:
             - docker images
-            - docker login --username yardeng --password $int_yardeng_hts1_artifactory_apikey hts1-ohadl-docker-test.jfrog.io
-            - docker pull hts1.jfrog.io/artifactory/ohadl-docker-test/hello-world
+            - docker login --username $int_GittaLabs_user --password $int_GittaLabs_apikey $int_GittaLabs_url
+            - docker pull gittalabs.jfrog.io/docker/busybox
             - docker images
-            - docker save hts1.jfrog.io/artifactory/ohadl-docker-test/hello-world .
+            - docker save gittalabs.jfrog.io/docker/busybox .
             - ls -lah
