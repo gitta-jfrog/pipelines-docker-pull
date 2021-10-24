@@ -9,7 +9,7 @@ pipelines:
         execution:
           onStart:
             - docker images
-            - docker login hts1-ohadl-docker-test.jfrog.io --username $int_yardeng_hts1_artifactory_user --password-stdin $int_yardeng_hts1_artifactory_apikey
+            - docker login hts1-ohadl-docker-test.jfrog.io --username yardeng --password-stdin $int_yardeng_hts1_artifactory_apikey
             - docker pull hts1.jfrog.io/artifactory/ohadl-docker-test/hello-world
             - docker images
             - docker save hts1.jfrog.io/artifactory/ohadl-docker-test/hello-world .
