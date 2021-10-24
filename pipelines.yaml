@@ -8,4 +8,7 @@ pipelines:
             - name: yardeng_hts1_artifactory
         execution:
           onStart:
+            - docker images
             - docker login $int_myArtifactory_url --username $int_myArtifactory_user --password $int_myArtifactory_apikey
+            - docker pull hts1.jfrog.io/artifactory/ohadl-docker-test/hello-world
+            - docker images
